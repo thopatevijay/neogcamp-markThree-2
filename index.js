@@ -5,23 +5,28 @@ var score = 0;
 var questions = [
     {
         question: "Who invented Javascript? ",
-        answer: "Brendan Eich"
+        answer: "Brendan Eich",
+        source: "https://g.co/kgs/AQFmPF"
     },
     {
         question: "Who invented Node.js ? ",
-        answer: "Ryan Dahl"
+        answer: "Ryan Dahl",
+        source: "https://g.co/kgs/UhouDy"
     },
     {
         question: "React was originally created by ? ",
-        answer: "Jordan Walke"
+        answer: "Jordan Walke",
+        source: "https://g.co/kgs/NExV57"
     },
     {
         question: "Who invented HTML ? ",
-        answer: "Tim Berners-Lee"
+        answer: "Tim Berners-Lee",
+        source: "https://g.co/kgs/JJ9QBT"
     },
     {
         question: "Is JavaScript similar to Java?? ",
-        answer: "No"
+        answer: "No",
+        source: "https://www.geeksforgeeks.org/difference-between-java-and-javascript/"
     }
 ];
 
@@ -45,11 +50,11 @@ function welcome() {
 function game() {
     for (var i = 0; i < questions.length; i++) {
         var currentQuestion = questions[i];
-        play(currentQuestion.question, currentQuestion.answer)
+        play(currentQuestion.question, currentQuestion.answer, currentQuestion.source)
     }
 };
 
-function play(question, answer) {
+function play(question, answer, source) {
     var userAnswer = readlineSync.question(question);
 
     if (userAnswer.toUpperCase() === answer.toUpperCase()) {
@@ -57,6 +62,8 @@ function play(question, answer) {
         score += 1;
     } else {
         console.log('wrong');
+        console.log('Currect answer is: ' + answer);
+        console.log(`Don't worry, let's have a look here:  ${source}`);
     }
 
     console.log('current score: ', score);
