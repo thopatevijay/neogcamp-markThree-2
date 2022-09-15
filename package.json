@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/thopatevijay/neogcamp-markThree-2#readme",
   "dependencies": {
+    "chalk": "^4.1.2",
     "readline-sync": "^1.4.10"
   }
 }
