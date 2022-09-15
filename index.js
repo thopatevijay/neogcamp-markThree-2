@@ -25,19 +25,29 @@ var questions = [
     }
 ];
 
+var highScores = [
+    {
+        name: 'Jay',
+        score: 4
+    },
+    {
+        name: 'John',
+        score: 5
+    }
+];
 
 function welcome() {
     var userName = readlineSync.question("What is your name? ");
 
     console.log("Welcome " + userName + " to DO YOU KNOW me?")
-}
+};
 
 function game() {
     for (var i = 0; i < questions.length; i++) {
         var currentQuestion = questions[i];
         play(currentQuestion.question, currentQuestion.answer)
     }
-}
+};
 
 function play(question, answer) {
     var userAnswer = readlineSync.question(question);
@@ -51,7 +61,16 @@ function play(question, answer) {
 
     console.log('current score: ', score);
     console.log('-------------------');
-}
+};
+
+function showScore() {
+    console.log('You scored: ', score);
+
+    console.log("Check out the high scores, if you should be there ping me and   I'll update it");
+
+    highScores.map(score => console.log(score.name, " : ", score.score));
+};
 
 welcome();
 game();
+showScore();
