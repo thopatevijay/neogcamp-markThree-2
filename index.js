@@ -1,4 +1,5 @@
 var readlineSync = require("readline-sync");
+var chalk = require('chalk');
 
 var score = 0;
 
@@ -44,7 +45,7 @@ var highScores = [
 function welcome() {
     var userName = readlineSync.question("What is your name? ");
 
-    console.log("Welcome " + userName + " , Do you know about web development languages? ")
+    console.log("Welcome " + chalk.blue(userName) + " , Do you know about web development languages? ")
 };
 
 function game() {
@@ -58,11 +59,11 @@ function play(question, answer, source) {
     var userAnswer = readlineSync.question(question);
 
     if (userAnswer.toUpperCase() === answer.toUpperCase()) {
-        console.log('right');
+        console.log(chalk.green('right'));
         score += 1;
     } else {
-        console.log('wrong');
-        console.log('Currect answer is: ' + answer);
+        console.log(chalk.red('wrong'));
+        console.log(chalk.blue('Currect answer is: ' + answer));
         console.log(`Don't worry, let's have a look here:  ${source}`);
     }
 
